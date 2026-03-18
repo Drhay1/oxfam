@@ -1,0 +1,10 @@
+.preheader ul {
+    list-style: none;
+    display: flex;
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+}
+
+.preheader li {
+    margin-right: 2em;
+}

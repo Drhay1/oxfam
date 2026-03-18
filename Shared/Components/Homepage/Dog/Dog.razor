@@ -1,0 +1,163 @@
+<div class="dog">
+    <div class="container">
+        <div id="sideswap" class="row">
+            <div class="col-md-4">
+                <div class="epic"
+                     style="background-color: @(Brain.CurrentTheme.LoginBoxColor); border-bottom: 10px solid @(Brain.CurrentTheme.PrimaryBackgroundColor);">
+
+                    <form>
+                        <h4 class="ltitle">Online Banking</h4>
+
+                        <select>
+                            <option>Personal</option>
+                            <option>Business</option>
+                            <option>Investing</option>
+                        </select>
+
+                        <input type="text"
+                               placeholder="username"
+                               style="@usernameStyle"
+                               @onchange="@(e => Username = e.Value.ToString())">
+
+                        <input type="password"
+                               style="margin-top: 8px"
+                               placeholder="password">
+
+                        @if (showLoading)
+                        {
+                            <div id="loading">Please Wait...</div>
+                        }
+                    </form>
+
+                    <div class="spacer"></div>
+
+                    <button @onclick="@(e => OnLoginClicked())">Login</button>
+
+                    <Anchor Color="@(Brain.CurrentTheme.AnchorColor2)" Style="margin-left 0.5em">
+                        Apply Today
+                    </Anchor>
+
+                </div>
+            </div>
+
+            <div class="col-md-8 headline">
+                <h1 style="font-size: 2rem;">@Brain.Dog.Title</h1>
+                <h4>@Brain.Dog.Text</h4>
+                <br />
+
+                <div id="mobile" class="darker">
+                    <h3>Mobile App</h3>
+                    <p>@Brain.MobileBanking</p>
+                    <Anchor Color="Cyan">Try Mobile Banking</Anchor>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========================= -->
+<!-- TWO FACTOR MODAL (UPDATED) -->
+<!-- ========================= -->
+@if (showTwoFactor)
+{
+    <div id="twofactor" class="modal show" style="display: block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Security Verification</h5>
+                    <button class="close" @onclick="HideTwoFactor">
+                        <span>&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    Please enter the last 4 digits of your SSN:
+
+                    <div class="form-group mt-2">
+                        <input class="form-control"
+                               type="text"
+                               maxlength="4"
+                               placeholder="____"
+                               @bind="TwoFactorValue" />
+                    </div>
+
+                    <label>Confirm last 4 digits:</label>
+
+                    <div class="form-group">
+                        <input class="form-control"
+                               type="text"
+                               maxlength="4"
+                               placeholder="____"
+                               @bind="ConfirmTwoFactorValue" />
+                    </div>
+
+                    @if (showBadcode)
+                    {
+                        <small style="color: red">
+                            The values do not match or are invalid. Please try again.
+                        </small>
+                    }
+                </div>
+
+                <div class="modal-footer">
+                    <button @onclick="SubmitTwoFactor">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+<!-- ========================= -->
+<!-- SIMPLE MATH MODAL -->
+<!-- ========================= -->
+@if (showMathProblem)
+{
+    <div id="mathquiz" class="modal show" style="display: block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Quick Verification</h5>
+                    <button class="close" @onclick="HideMath">
+                        <span>&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    Please solve the following:
+
+                    <div class="form-group mt-2">
+                        <code style="font-size: 1.2rem;">@mathProblem</code>
+
+                        <div class="mt-2">
+                            <input class="form-control"
+                                   type="text"
+                                   placeholder="Enter answer"
+                                   @bind="MathAnswerValue" />
+                        </div>
+                    </div>
+
+                    @if (showBadcode)
+                    {
+                        <small style="color: red">
+                            Incorrect answer. Please try again.
+                        </small>
+                    }
+                </div>
+
+                <div class="modal-footer">
+                    <button @onclick="SubmitMathProblem">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+<!-- BACKDROP -->
+@if (showMathProblem || showTwoFactor)
+{
+    <div class="modal-backdrop fade show"></div>
+}

@@ -1,0 +1,29 @@
+@inherits LayoutComponentBase
+@inject BrainService Brain
+
+@using Bank.Shared.Components.Preheader
+@using Bank.Shared.Components.Navbar
+@using Bank.Shared.Components.Footer
+
+@if (Brain.CurrentTheme.ShowPreheader)
+{
+    <Preheader />
+}
+
+<Navbar />
+@Body
+<Footer />
+@* FIXME why this no work *@
+<div id="inactivity-popup" style="display: @Brain.InactivityDisplay">
+    <div>
+        <h2>For Your Safety</h2>
+        <p>You have been safely logged out due to inactivity.</p>
+        <p>Please wait a moment and log back in. </p>
+        <p>
+            To return to the login page
+            <Anchor Color="@(Brain.CurrentTheme.AnchorColor2)">
+                click here
+            </Anchor>.
+        </p>
+    </div>
+</div>

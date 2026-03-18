@@ -1,0 +1,11 @@
+#rates {
+    padding: 2em 0;
+}
+
+#rates .col-md-4 {
+    text-align: center;
+}
+
+#rates h3 {
+    margin: 1em 0 2.5 0;
+}

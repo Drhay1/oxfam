@@ -1,0 +1,54 @@
+@page "/account"
+@using Bank.Shared.Components.Account.Sidebar
+@using Bank.Shared.Components.Account.AccountInfo
+
+@if (Brain.GetCurrentUser() != null)
+{
+    <div class="container" id="stuff">
+        @*
+            This can be with one of the themes
+
+            <div id="loginmessage">
+            Welcome Back! Last Login: @LastLoginDate
+            </div>
+        *@
+
+        <div id="main-row" class="row">
+            @if (Brain.CurrentTheme.SidebarPosition == SidebarPosition.Left)
+            {
+                <Sidebar />
+            }
+            <div class="col-md-8">
+                <div id="filler">
+                    <div class="row">
+                        <ButtonGroup Wrap="true">
+                            <ButtonGroupItem Glyph="book" Style="@BgStyle">
+                                <Anchor Color="white" Location="/transactions/-1">All transactions</Anchor>
+                            </ButtonGroupItem>
+                            <ButtonGroupItem Glyph="calculator" Style="@BgStyle">
+                                <Anchor Color="white" Location="/transfer">Make a transfer</Anchor>
+                            </ButtonGroupItem>
+                            <ButtonGroupItem Glyph="briefcase" Style="@BgStyle">
+                                <Anchor Color="white">Contact Support</Anchor>
+                            </ButtonGroupItem>
+                            <ButtonGroupItem Glyph="info" Style="@BgStyle">
+                                <Anchor Color="white">Edit or add alerts</Anchor>
+                            </ButtonGroupItem>
+                            <ButtonGroupItem Glyph="document" Style="@BgStyle">
+                                <Anchor Color="white">Go paperless</Anchor>
+                            </ButtonGroupItem>
+                            <ButtonGroupItem Glyph="grid-three-up" Style="@BgStyle">
+                                <Anchor Color="white">Edit profile</Anchor>
+                            </ButtonGroupItem>
+                        </ButtonGroup>
+                    </div>
+                </div>
+                <AccountInfo />
+            </div>
+            @if (Brain.CurrentTheme.SidebarPosition == SidebarPosition.Right)
+            {
+                <Sidebar />
+            }
+        </div>
+    </div>
+}
