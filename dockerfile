@@ -6,10 +6,10 @@ WORKDIR /src
 COPY . .
 
 # Restore dependencies
-RUN dotnet restore "Oxfam.csproj"
+RUN dotnet restore
 
 # Publish the app (Release configuration)
-RUN dotnet publish "Oxfam.csproj" -c Release -o /app/out
+RUN dotnet publish Bank.csproj -c Release -o /app/out
 
 # Stage 2: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
@@ -23,4 +23,4 @@ ENV ASPNETCORE_URLS=http://*:$PORT
 EXPOSE $PORT
 
 # Run the app
-ENTRYPOINT ["dotnet", "Oxfam.dll"]
+ENTRYPOINT ["dotnet", "Bank.dll"]
