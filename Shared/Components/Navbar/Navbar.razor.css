@@ -1,47 +1,107 @@
-.header-menu {
-    padding-top: 0.5em;
-    margin-left: 2em;
-}
-.header-menu a {
-    color: #1b1b1b;
-    font-family: "poppins";
-}
-.header-menu li.nav-item:first-of-type {
-    border-left: none;
-}
-.header-menu li.nav-item {
-    border-right: none;
+.navbar-container {
+    position: relative;
 }
 
-.menu Anchor {
-    font-family: Tahoma, Verdana;
+/* Desktop navbar */
+.header-menu {
+    padding-top: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.header-menu a {
+    color: #1b1b1b;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    display: block;
+}
+
+li.nav-item {
+    list-style: none;
+    border-right: 1px solid #000;
+}
+
+li.nav-item:first-of-type {
+    border-left: none;
 }
 
 .menu {
     background-color: #fff;
 }
 
-li.nav-item:first-of-type {
-    border-left: 1px solid #000;
-}
-li.nav-item {
-    border-right: 1px solid #000;
-}
-
 .modern {
     padding-top: 1em;
     padding-bottom: 0.5em;
     font-family: Tahoma, Verdana;
-}
-
-.modern li.nav-item:first-of-type {
-    border-left: none;
-}
-
-.modern li.nav-item {
-    border-right: none;
-}
-
-.modern {
     border-bottom: 2px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --------------------- */
+/* MOBILE NAVBAR STYLING */
+/* --------------------- */
+@media (max-width: 991px) {
+
+    /* Hamburger visible on mobile */
+    .hamburger {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        right: 1em;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+
+    /* Hide menu by default on mobile */
+    .header-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .header-menu.show {
+        display: flex !important;
+        animation: slideDown 0.3s ease-in-out;
+    }
+
+    .header-menu li.nav-item {
+        width: 100%;
+        text-align: center;
+        padding: 1em 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .modern {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5em 1em;
+    }
+}
+
+/* Desktop: hide hamburger */
+.hamburger {
+    display: none;
+}
+
+/* Smooth slide-down animation */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

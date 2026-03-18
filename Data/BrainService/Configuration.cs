@@ -32,7 +32,7 @@ namespace Bank.Data
         /// </summary>
         public TitleTextPair Dog = new TitleTextPair
         (
-            "Hello There!",
+            "Welcome Here!",
             new List<string>
             {
                 "Investing is like a box of chocolates, you never know what you're going to get!",

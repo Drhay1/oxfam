@@ -4,74 +4,65 @@
 @if (Brain.CurrentTheme.NavbarStyle == NavbarStyle.Basic)
 {
     <header
-        style='@($"background-color: {Brain.CurrentTheme.PrimaryBackgroundColor}; color: {Brain.CurrentTheme.HeaderAnchorColor}")'>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 style='@($"margin-top: 8px; color: {Brain.CurrentTheme.HeaderNameColor}")'>@Brain.BankName</h2>
-                </div>
-                <div class="header-menu">
-                    <nav>
-                        <ul class="nav mx-auto">
-                            <NavbarLinks />
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+        style='@($"background-color: {Brain.CurrentTheme.PrimaryBackgroundColor}; color: {Brain.CurrentTheme.HeaderAnchorColor}")'
+        class="navbar-container">
+        <div class="container position-relative">
+            <h2 style='@($"margin-top: 8px; color: {Brain.CurrentTheme.HeaderNameColor}")'>@Brain.BankName</h2>
+
+            <!-- Hamburger (absolute on mobile) -->
+            <div class="hamburger" @onclick="ToggleMenu">&#9776;</div>
+
+            <!-- Navbar links -->
+            <nav class="header-menu @(menuVisible ? "show" : "")">
+                <ul class="nav mx-auto">
+                    <NavbarLinks />
+                </ul>
+            </nav>
         </div>
     </header>
 }
 else if (Brain.CurrentTheme.NavbarStyle == NavbarStyle.Seperated)
 {
-    <div class="menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 style='@($"margin-top: 8px; color: {Brain.CurrentTheme.HeaderNameColor}")'>@Brain.BankName</h2>
-                </div>
-                <div class="col-md-12 buttons">
-                    <nav>
-                        <ul class="nav mx-auto">
-                            <NavbarLinks />
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+    <div class="menu navbar-container">
+        <div class="container position-relative">
+            <h2 style='@($"margin-top: 8px; color: {Brain.CurrentTheme.HeaderNameColor}")'>@Brain.BankName</h2>
+
+            <!-- Hamburger -->
+            <div class="hamburger" @onclick="ToggleMenu">&#9776;</div>
+
+            <!-- Navbar links -->
+            <nav class="header-menu @(menuVisible ? "show" : "")">
+                <ul class="nav mx-auto">
+                    <NavbarLinks />
+                </ul>
+            </nav>
         </div>
     </div>
 }
 else if (Brain.CurrentTheme.NavbarStyle == NavbarStyle.Modern)
 {
-    <div class="modern">
-        <div class="container">
-            <div class="row">
-                @if (Brain.LoggedIn)
-                {
-                    <div class="col-md-7">
-                        <h3 style="color: @(Brain.CurrentTheme.HeaderNameColor)">@Brain.BankName</h3>
-                    </div>
-                    <div class="col-md-5">
-                        <nav>
-                            <ul class="nav mx-auto">
-                                <NavbarLinks />
-                            </ul>
-                        </nav>
-                    </div>
-                }
-                else
-                {
-                    <div class="col-md-6">
-                        <h3 style="color: @(Brain.CurrentTheme.HeaderNameColor)">@Brain.BankName</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <nav>
-                            <ul class="nav mx-auto">
-                                <NavbarLinks />
-                            </ul>
-                        </nav>
-                    </div>
-                }
-            </div>
+    <div class="modern navbar-container">
+        <div class="container position-relative d-flex justify-content-between align-items-center">
+            <h3 style="color: @(Brain.CurrentTheme.HeaderNameColor)">@Brain.BankName</h3>
+
+            <!-- Hamburger -->
+            <div class="hamburger" @onclick="ToggleMenu">&#9776;</div>
+
+            <!-- Navbar links -->
+            <nav class="header-menu @(menuVisible ? "show" : "")">
+                <ul class="nav mx-auto">
+                    <NavbarLinks />
+                </ul>
+            </nav>
         </div>
     </div>
+}
+
+@code {
+    private bool menuVisible = false;
+
+    private void ToggleMenu()
+    {
+        menuVisible = !menuVisible;
+    }
 }

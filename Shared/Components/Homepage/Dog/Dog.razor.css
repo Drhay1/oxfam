@@ -1,31 +1,40 @@
 .dog {
-    background-image: url("https://source.unsplash.com/collection/573009");
+    background-image: url("/images/bg.jpg");
     background-size: cover;
     background-position: center center;
     position: relative;
-    min-height: 300px;
+    min-height: 500px;
 }
+
+.dog .container {
+    max-width: 100%;
+    padding: 0 1em;
+}
+
 .dog .ltitle {
     display: none;
 }
+
 .dog .darker {
     background-color: #202020;
     color: #fff;
-    background: #444;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #444 0%, #141414 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #444 0%, #141414 100%);
-    /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #444 0%, #141414 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444', endColorstr='#141414',GradientType=0);
-    /* IE6-9 */
 }
+
 .dog .epic {
     padding: 2em;
     position: absolute;
-    top: 1.8em;
+    top: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    /* added width for desktop screens */
+    max-width: 90%;
+    /* prevent overflow on smaller desktops */
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.65);
+    /* semi-transparent for readability */
 }
 
 #loading {
@@ -47,17 +56,21 @@
 .dog .epic input {
     width: 100%;
 }
+
 .dog .epic select {
     margin-bottom: 10px;
 }
+
 .dog .epic .fault {
     border: 5px solid red;
 }
+
 .dog .headline {
     color: #fff;
     padding: 3em 5em;
     filter: drop-shadow(1px 1px 3px #000 9);
 }
+
 .dog .headline #mobile {
     position: absolute;
     bottom: -14em;
@@ -66,12 +79,79 @@
     border-radius: 12px;
     right: 0;
 }
+
 .dog .headline #mobile img {
     height: 40px;
     margin-right: 1em;
     margin-top: 1em;
 }
+
 .dog .spacer {
     height: 1.5em;
     width: 100%;
+}
+
+/* =============================== */
+/* MOBILE RESPONSIVE STYLING BELOW */
+/* =============================== */
+@media (max-width: 991px) {
+    .dog .epic {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        padding: 2em 1em;
+        margin-bottom: 2em;
+        background: rgba(0, 0, 0, 0.85);
+    }
+
+    .dog .headline {
+        padding: 1em 1em;
+    }
+
+    .dog .headline #mobile {
+        position: relative;
+        bottom: auto;
+        width: 100%;
+        right: auto;
+        padding: 1em;
+        margin-top: 1em;
+    }
+
+    .dog .headline #mobile img {
+        height: 30px;
+        margin-right: 0.5em;
+        margin-top: 0.5em;
+    }
+
+    .dog .headline h1 {
+        font-size: 1.5rem;
+    }
+
+    .dog .headline h4 {
+        font-size: 1rem;
+    }
+
+    #sideswap .col-md-4,
+    #sideswap .col-md-8 {
+        width: 100% !important;
+        margin-bottom: 1em;
+    }
+
+    .dog .epic button,
+    .dog .epic input,
+    .dog .epic select {
+        font-size: 1rem;
+    }
+
+    #loading {
+        width: 90%;
+        margin-left: 5%;
+        left: 0;
+    }
+
+    .dog .spacer {
+        height: 1em;
+    }
 }
