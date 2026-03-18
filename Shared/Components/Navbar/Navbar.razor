@@ -3,58 +3,72 @@
 
 @if (Brain.CurrentTheme.NavbarStyle == NavbarStyle.Basic)
 {
-    <header
-        style='@($"background-color: {Brain.CurrentTheme.PrimaryBackgroundColor}; color: {Brain.CurrentTheme.HeaderAnchorColor}")'
-        class="navbar-container">
-        <div class="container position-relative">
-            <h2 style='@($"margin-top: 8px; color: {Brain.CurrentTheme.HeaderNameColor}")'>@Brain.BankName</h2>
+    <header class="navbar-container"
+            style='@($"background-color: {Brain.CurrentTheme.PrimaryBackgroundColor}; color: {Brain.CurrentTheme.HeaderAnchorColor}")'>
 
-            <!-- Hamburger (absolute on mobile) -->
+        <div class="container navbar-flex">
+
+            <!-- Bank Name -->
+            <h2 class="bank-name"          style='@($"color: {Brain.CurrentTheme.HeaderNameColor}")'>
+                @Brain.BankName
+            </h2>
+
+            <!-- Hamburger -->
             <div class="hamburger" @onclick="ToggleMenu">&#9776;</div>
 
-            <!-- Navbar links -->
-            <nav class="header-menu @(menuVisible ? "show" : "")">
-                <ul class="nav mx-auto">
-                    <NavbarLinks />
-                </ul>
-            </nav>
         </div>
+
+        <!-- Menu -->
+        <nav class="header-menu @(menuVisible ? "show" : "")">
+            <ul class="nav">
+                <NavbarLinks />
+            </ul>
+        </nav>
+
     </header>
 }
 else if (Brain.CurrentTheme.NavbarStyle == NavbarStyle.Seperated)
 {
     <div class="menu navbar-container">
-        <div class="container position-relative">
-            <h2 style='@($"margin-top: 8px; color: {Brain.CurrentTheme.HeaderNameColor}")'>@Brain.BankName</h2>
 
-            <!-- Hamburger -->
+        <div class="container navbar-flex">
+
+            <h2 class="bank-name"        style='@($"color: {Brain.CurrentTheme.HeaderNameColor}")'>
+                @Brain.BankName
+            </h2>
+
             <div class="hamburger" @onclick="ToggleMenu">&#9776;</div>
 
-            <!-- Navbar links -->
-            <nav class="header-menu @(menuVisible ? "show" : "")">
-                <ul class="nav mx-auto">
-                    <NavbarLinks />
-                </ul>
-            </nav>
         </div>
+
+        <nav class="header-menu @(menuVisible ? "show" : "")">
+            <ul class="nav">
+                <NavbarLinks />
+            </ul>
+        </nav>
+
     </div>
 }
 else if (Brain.CurrentTheme.NavbarStyle == NavbarStyle.Modern)
 {
     <div class="modern navbar-container">
-        <div class="container position-relative d-flex justify-content-between align-items-center">
-            <h3 style="color: @(Brain.CurrentTheme.HeaderNameColor)">@Brain.BankName</h3>
 
-            <!-- Hamburger -->
+        <div class="container navbar-flex">
+
+            <h3 class="bank-name" style="color: @(Brain.CurrentTheme.HeaderNameColor)">
+                @Brain.BankName
+            </h3>
+
             <div class="hamburger" @onclick="ToggleMenu">&#9776;</div>
 
-            <!-- Navbar links -->
-            <nav class="header-menu @(menuVisible ? "show" : "")">
-                <ul class="nav mx-auto">
-                    <NavbarLinks />
-                </ul>
-            </nav>
         </div>
+
+        <nav class="header-menu @(menuVisible ? "show" : "")">
+            <ul class="nav">
+                <NavbarLinks />
+            </ul>
+        </nav>
+
     </div>
 }
 

@@ -1,11 +1,54 @@
 #rates {
-    padding: 2em 0;
+    padding: 3em 0;
 }
 
-#rates .col-md-4 {
-    text-align: center;
-}
-
+/* Header spacing fix */
 #rates h3 {
-    margin: 1em 0 2.5 0;
+    margin: 1em 0 2.5em 0;
+}
+
+/* Rate card */
+.rate-card {
+    text-align: center;
+    padding: 1.5em;
+}
+
+/* Big rate number */
+.rate-card h1 {
+    font-size: 2.5rem;
+    margin: 0.3em 0;
+}
+
+/* Small title */
+.rate-card h5 {
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Link styling */
+.rate-link {
+    display: inline-block;
+    margin-top: 0.5em;
+    text-decoration: none;
+    font-weight: 500;
+    color: #000;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px) {
+
+    /* Stack spacing */
+    .rate-card {
+        margin-bottom: 2em;
+    }
+
+    /* Reduce large numbers */
+    .rate-card h1 {
+        font-size: 2rem;
+    }
+
+    /* Slight padding */
+    #rates {
+        padding: 2em 1em;
+    }
 }

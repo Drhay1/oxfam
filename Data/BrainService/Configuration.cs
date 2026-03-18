@@ -8,23 +8,19 @@ namespace Bank.Data
         /// <summary>
         /// The name of the "bank".
         /// </summary>
-        public string BankName = "Oxfam Washington American Mutual";
+        public string BankName = "Washington American Mutual";
 
         /// <summary>
         /// Text show on the footer of the page.
         /// Allows html
         /// </summary>
         public string Footer = @"
-            <p>Member FDIC: No. Rates and investment products are not insured.</p>
+            <p>Member FDIC. Deposits insured up to applicable limits.</p>
             <p>
-                The bank information provided on this website is only valid for those living in states that end in G and no
-                others. Any attempt to use this website without authorized access is prohibited by the 11th circuit court of
-                the
-                high magistrates. No offers may be made or accepted from any resident outside of these states due to various
-                state
-                regulations and registration requirements regarding investment products and services.
+                Washington American Mutual is committed to providing secure, transparent, and customer-focused financial services.
+                All products and services are subject to applicable state and federal regulations.
             </p>
-            <p>&copy; Copyright OXFAM ORGANIZATION LLC</p>
+            <p>&copy; 2026 Washington American Mutual. All rights reserved.</p>
         ";
 
         /// <summary>
@@ -32,22 +28,22 @@ namespace Bank.Data
         /// </summary>
         public TitleTextPair Dog = new TitleTextPair
         (
-            "Welcome Here!",
+            "Welcome to Smarter Banking",
             new List<string>
             {
-                "Investing is like a box of chocolates, you never know what you're going to get!",
-                "Check the dictionary, we're there.",
-                "Buying high, so you can sell low.",
-                "Trusting your bank should be easy, so that's what you should do.",
-                "Ask about our low interest CD rates.",
-                "Now offering fixed rate war bonds."
+                "Take control of your financial future with tools designed to help you grow.",
+                "Secure, simple, and built around you—banking that fits your life.",
+                "Your goals matter. We're here to help you reach them faster.",
+                "Experience banking that works as hard as you do.",
+                "Trusted by thousands. Built for your future.",
+                "Manage your money with confidence, clarity, and control."
             }
         );
 
         /// <summary>
         /// Mobile banking card on-top of the <see cref="ThreeThings" /> list
         /// </summary>
-        public string MobileBanking = "Download our state of the art mobile banking suite today!";
+        public string MobileBanking = "Bank anytime, anywhere with our secure and easy-to-use mobile app.";
 
         /// <summary>
         /// Below the login area of the main page.
@@ -55,18 +51,18 @@ namespace Bank.Data
         public TitleTextPair[] ThreeThings = new TitleTextPair[3]
         {
             new TitleTextPair(
-                "Auto Loan Center",
-                "If you think all banks are the same then you're right. It's money money money baby."
+            "Auto Loans Made Easy",
+            "Drive your dream car sooner with flexible financing, competitive rates, and fast approvals."
             ),
             new TitleTextPair
             (
-                "Education Center",
-                "Let's think for a second what life would be like if everyone read books everyday."
+                "Financial Education",
+                "Make smarter decisions with expert insights, tools, and resources designed to grow your wealth."
             ),
             new TitleTextPair
             (
-                "", // Leave these two blank so the mobile
-                ""  // banking app is in a good spot
+                "Digital Banking",
+                "Enjoy seamless, secure banking from anywhere with our powerful online and mobile platforms."
             ),
         };
 
@@ -75,8 +71,11 @@ namespace Bank.Data
         /// Allows HTML
         /// </summary>
         public TitleTextPair RandomText = new TitleTextPair(
-            "Banking doesn't need to be complicated, but it is anyways.",
-            "We're passionate about getting your money in our bank and will stop at nothing to make it happen. In todays dog-eat-dog-eat-cat-eat-bird-eat-worm world we have to rely on powerful allies. As said powerful allies to many powerful world leaders, we can be the answer to your problems. Did you know banking can solve a world of problems? We solve the worlds problems of tomorrow, today. We put the you in community. There's no physical branches so we can keep the saving flowing."
+            "Banking Built Around You",
+            "At Washington American Mutual, we believe banking should be simple, secure, and empowering. " +
+            "That’s why we provide modern financial solutions designed to help you save smarter, spend wisely, " +
+            "and grow confidently. Whether you're planning for the future or managing your day-to-day finances, " +
+            "we’re here to support every step of your journey."
         );
 
         /// <summary>
@@ -84,9 +83,9 @@ namespace Bank.Data
         /// </summary>
         public TitleTextPair[] Rates = new TitleTextPair[3]
         {
-            new TitleTextPair("Online Transfers", "0.42%"),
-            new TitleTextPair("Credit Card", "0.12%"),
-            new TitleTextPair("International", "1.37%")
+            new TitleTextPair("Fast Online Transfers", "Low Fees"),
+            new TitleTextPair("Credit Card Rates", "Competitive APR"),
+            new TitleTextPair("International Payments", "Best-in-Class Rates")
         };
 
         [Obsolete("Use class properties instead.", true)]

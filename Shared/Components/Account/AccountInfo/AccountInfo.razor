@@ -1,44 +1,54 @@
+@{
+    var currentUser = Brain.GetCurrentUser();
+    var fullName = currentUser != null ? $"{currentUser.FirstName} {currentUser.LastName}" : "User";
+}
+
+<div class="greeting">
+    <h2>Welcome, @fullName!</h2>
+</div>
+
 @if (Brain.CurrentTheme.AccountInfoStyle == AccountInfoStyle.Modern)
 {
-    <div class="row">
-        <div id="account-info">
-            @foreach (User.Account account in Brain.GetCurrentAccounts())
-            {
-                <div class="account-row">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h5>
-                                @account.Name
-                                <span>@($"XXXX{account.Last4Digits}")</span>
-                            </h5>
-                            <hr />
-                            <h1>@account.FormattedBalance</h1>
-                        </div>
-                        <div class="col-md-4">
-                            <ButtonGroup>
-                                <ButtonGroupItem>
-                                    <Anchor Color="@(Brain.CurrentTheme.ButtonGroupAnchorColor)"
-                                        Location='@($"/transactions/{account.Last4Digits}")'>View transactions
-                                    </Anchor>
-                                </ButtonGroupItem>
-                                <ButtonGroupItem>
-                                    <Anchor Color="@(Brain.CurrentTheme.ButtonGroupAnchorColor)" Location="/transfer">Make a
-                                        transfer</Anchor>
-                                </ButtonGroupItem>
-                                <ButtonGroupItem>
-                                    <Anchor Color="@(Brain.CurrentTheme.ButtonGroupAnchorColor)">More actions</Anchor>
-                                </ButtonGroupItem>
-                            </ButtonGroup>
-                        </div>
-                    </div>
+    <div id="account-info">
+        @foreach (User.Account account in Brain.GetCurrentAccounts())
+        {
+            <div class="account-row row">
+                <div class="col-12 col-md-8">
+                    <h5>
+                        @account.Name
+                        <span>@($"XXXX{account.Last4Digits}")</span>
+                    </h5>
+                    <hr />
+                    <h1>@account.FormattedBalance</h1>
                 </div>
-            }
-        </div>
+                <div class="col-12 col-md-4 action-section">
+                    <ButtonGroup>
+                        <ButtonGroupItem>
+                            <Anchor Color="@(Brain.CurrentTheme.ButtonGroupAnchorColor)"
+                                    Location='@($"/transactions/{account.Last4Digits}")'>
+                                View transactions
+                            </Anchor>
+                        </ButtonGroupItem>
+                        <ButtonGroupItem>
+                            <Anchor Color="@(Brain.CurrentTheme.ButtonGroupAnchorColor)"              Location="/transfer">
+                                Make a transfer
+                            </Anchor>
+                        </ButtonGroupItem>
+                        <ButtonGroupItem>
+                            <Anchor Color="@(Brain.CurrentTheme.ButtonGroupAnchorColor)">
+                                More actions
+                            </Anchor>
+                        </ButtonGroupItem>
+                    </ButtonGroup>
+                </div>
+            </div>
+        }
     </div>
 }
 else if (Brain.CurrentTheme.AccountInfoStyle == AccountInfoStyle.Compact)
 {
-    <div class="row">
+    <!-- DESKTOP TABLES -->
+    <div class="desktop-only">
         <table id="accounts" class="table table-striped">
             <thead>
                 <tr>
@@ -58,7 +68,7 @@ else if (Brain.CurrentTheme.AccountInfoStyle == AccountInfoStyle.Compact)
                             </Anchor>
                         </td>
                         <td>XXXX@(account.Last4Digits)</td>
-                        <td>@(account.FormattedBalance)</td>
+                        <td>@account.FormattedBalance</td>
                         <td>
                             <Anchor Location="/transfer">Transfer</Anchor>
                         </td>
@@ -66,10 +76,9 @@ else if (Brain.CurrentTheme.AccountInfoStyle == AccountInfoStyle.Compact)
                 }
             </tbody>
         </table>
-    </div>
-    <div id="activity-list" class="row">
+
         <h4>Your most recent transactions:</h4>
-        <hr>
+        <hr />
         <div id="recent-box">
             <table class="table table-striped">
                 <thead>
@@ -93,5 +102,37 @@ else if (Brain.CurrentTheme.AccountInfoStyle == AccountInfoStyle.Compact)
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <!-- MOBILE CARDS -->
+    <div class="mobile-only">
+        @foreach (User.Account account in Brain.GetCurrentAccounts())
+        {
+            <div class="account-card">
+                <div class="card-header">
+                    <h5>@account.Name</h5>
+                    <span>XXXX@(account.Last4Digits)</span>
+                </div>
+                <div class="card-body">
+                    <div class="balance">@account.FormattedBalance</div>
+                </div>
+                <div class="card-actions">
+                    <Anchor Location='@($"/transactions/{account.Last4Digits}")'>View</Anchor>
+                    <Anchor Location="/transfer">Transfer</Anchor>
+                </div>
+            </div>
+        }
+
+        <h4>Your most recent transactions:</h4>
+        <hr />
+        @foreach (User.Account.Transaction transaction in AllTransactions().OrderByDescending(x => x.Date))
+        {
+            <div class="transaction-card">
+                <div><strong>@transaction.Description</strong></div>
+                <div>@transaction.Type</div>
+                <div>@transaction.Date.ToString("MM/dd")</div>
+                <div class="amount">@transaction.FormattedAmount</div>
+            </div>
+        }
     </div>
 }

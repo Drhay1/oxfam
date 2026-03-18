@@ -4,6 +4,7 @@
 
 #accounts {
     border: 1px solid #ccc;
+    width: 100%;
 }
 
 #activity-list {
@@ -25,9 +26,180 @@
 
 .account-row h5 span {
     color: #ccc;
-    font-size: 0.7em;
+    font-size: 0.7rem;
 }
 
 .account-row .col-md-8 {
     padding: 1em 2em;
+}
+
+.greeting {
+    margin-bottom: 1.5rem;
+}
+
+.greeting h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* ===== SHOW/HIDE BASED ON SCREEN ===== */
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .account-row .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .account-row .col-12 {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .account-row h1 {
+        font-size: 1.5rem;
+    }
+
+    .action-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    ButtonGroup {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    ButtonGroupItem {
+        width: 100%;
+    }
+
+    #accounts,
+    #activity-list table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #activity-list {
+        padding: 0.5em;
+    }
+
+    #recent-box {
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    /* Account cards */
+    .account-card {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .account-card .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .account-card .card-header span {
+        color: #999;
+        font-size: 0.8rem;
+    }
+
+    .account-card .balance {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin: 0.5rem 0;
+    }
+
+    .account-card .card-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+    }
+
+    /* Transaction cards */
+    .transaction-card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 2rem);
+        /* account for padding/margin */
+        margin-left: 1rem;
+        margin-right: 1rem;
+        box-sizing: border-box;
+    }
+
+    .transaction-card>div {
+        margin-bottom: 0.3rem;
+    }
+
+    .transaction-card .amount {
+        font-weight: bold;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+
+    #accounts thead,
+    #activity-list thead {
+        display: none;
+    }
+
+    #accounts tr,
+    #activity-list tr {
+        display: block;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ddd;
+        padding: 0.5rem 0;
+    }
+
+    #accounts td,
+    #activity-list td {
+        display: block;
+        text-align: left;
+        padding-left: 0;
+    }
+
+    #accounts td::before,
+    #activity-list td::before {
+        display: none;
+    }
+
+    .greeting h2 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
 }

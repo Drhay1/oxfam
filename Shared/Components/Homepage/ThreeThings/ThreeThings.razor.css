@@ -1,8 +1,35 @@
 #threethings {
-    padding: 1em 0;
+    padding: 2em 0;
     color: #fff;
 }
 
+/* Each block */
+.thing {
+    text-align: left;
+}
+
+/* Paragraph styling */
 #threethings p {
     width: 70%;
+    line-height: 1.6;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px) {
+
+    /* Stack items nicely */
+    .thing {
+        margin-bottom: 2em;
+        text-align: center;
+    }
+
+    /* Full width text on mobile */
+    #threethings p {
+        width: 100%;
+    }
+
+    /* Better heading spacing */
+    #threethings h4 {
+        margin-bottom: 0.5em;
+    }
 }

@@ -1,4 +1,36 @@
 .content {
-    padding: 2em 0;
+    padding: 3em 0;
     background-color: #fff;
+}
+
+/* Text container */
+.text-block {
+    text-align: left;
+}
+
+/* Paragraph styling */
+.text-block p {
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Heading spacing */
+.text-block h3 {
+    margin-bottom: 0.5em;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px) {
+
+    .content {
+        padding: 2em 1em;
+    }
+
+    .text-block {
+        text-align: center;
+    }
+
+    .text-block p {
+        font-size: 0.95rem;
+    }
 }

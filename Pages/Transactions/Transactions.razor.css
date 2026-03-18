@@ -5,11 +5,52 @@
     position: relative;
 }
 
-#table-header .row .col-sm-4 {
+#table-header .row .col-md-4,
+#table-header .row .text-md-right {
     text-align: right;
     padding-top: 0.5em;
 }
 
 .container {
     font-family: "Roboto", sans-serif;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+}
+
+/* ===== TRANSACTION CARD ===== */
+.transaction-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.transaction-card > div {
+    margin-bottom: 0.3rem;
+}
+
+.transaction-card .amount {
+    font-weight: bold;
 }
