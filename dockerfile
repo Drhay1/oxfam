@@ -6,10 +6,10 @@ WORKDIR /src
 COPY . .
 
 # Restore dependencies
-RUN dotnet restore
+RUN dotnet restore "Oxfam.csproj"
 
 # Publish the app (Release configuration)
-RUN dotnet publish Oxfam.csproj -c Release -o /app/out
+RUN dotnet publish "Oxfam.csproj" -c Release -o /app/out
 
 # Stage 2: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
