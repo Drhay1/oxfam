@@ -1,5 +1,6 @@
 @inherits LayoutComponentBase
 @inject BrainService Brain
+@inject NavigationManager Navigation
 
 @using Bank.Shared.Components.Preheader
 @using Bank.Shared.Components.Navbar
@@ -13,6 +14,25 @@
 <Navbar />
 @Body
 <Footer />
+@if (Brain.LoggedIn && Brain.ShowSuspiciousActivityPopup)
+{
+    <div class="security-alert-backdrop">
+        <div class="security-alert-modal" style="border-top-color: @(Brain.CurrentTheme.PrimaryBackgroundColor)">
+            <h2>@Brain.SuspiciousActivitySubject</h2>
+            <p>@Brain.SuspiciousActivityMessage</p>
+            <div class="security-alert-actions">
+                <Anchor Color="@(Brain.CurrentTheme.AnchorColor)"
+                        OnClick="@(e => { Brain.DismissSuspiciousActivityPopup(); Navigation.NavigateTo("/inbox"); })">
+                    View in Inbox
+                </Anchor>
+                <button style="background-color: @(Brain.CurrentTheme.PrimaryBackgroundColor); border-color: @(Brain.CurrentTheme.PrimaryBackgroundColor)"
+                        @onclick="Brain.DismissSuspiciousActivityPopup">
+                    I Understand
+                </button>
+            </div>
+        </div>
+    </div>
+}
 @* FIXME why this no work *@
 <div id="inactivity-popup" style="display: @Brain.InactivityDisplay">
     <div>

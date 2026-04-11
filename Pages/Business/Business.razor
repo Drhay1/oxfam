@@ -1,0 +1,29 @@
+@page "/business"
+
+<div class="container business-page">
+    <div class="business-header" style="border-color: @(Brain.CurrentTheme.SecondaryBackgroundColor)">
+        <div>
+            <h2>Business Banking</h2>
+            <p>Banking tools for day-to-day cash flow, transfers, and account management.</p>
+        </div>
+        <Anchor Location="@BackLocation" Class="back-link">@BackLabel</Anchor>
+    </div>
+
+    <div class="business-grid">
+        <section class="business-card">
+            <h3>Business Checking</h3>
+            <p>Manage deposits, payments, and operating expenses from one secure account view.</p>
+        </section>
+
+        <section class="business-card">
+            <h3>Payments and Transfers</h3>
+            <p>Send internal transfers, review recent activity, and keep payment records in one place.</p>
+        </section>
+
+        <section class="business-card">
+            <h3>Account Support</h3>
+            <p>Get help with account access, transfer questions, and service requests.</p>
+            <Anchor Location="/support" Class="business-action">Contact Support</Anchor>
+        </section>
+    </div>
+</div>

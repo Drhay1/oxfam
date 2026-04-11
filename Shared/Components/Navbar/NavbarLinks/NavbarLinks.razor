@@ -4,17 +4,17 @@
 @if (!Brain.LoggedIn)
 {
     <li class="nav-item">
-        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link">Personal</Anchor>
+        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/account">Personal</Anchor>
     </li>
     <li class="nav-item">
-        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link">Business</Anchor>
+        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/business">Business</Anchor>
     </li>
     <li class="nav-item">
-        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link">Investing
+        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/investing">Investing
         </Anchor>
     </li>
     <li class="nav-item">
-        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link">Contact</Anchor>
+        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/support">Contact</Anchor>
     </li>
     <li class="nav-item">
         <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link">About</Anchor>
@@ -26,11 +26,23 @@ else
         <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/account">Accounts</Anchor>
     </li>
     <li class="nav-item">
+        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/business">Business</Anchor>
+    </li>
+    <li class="nav-item">
+        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/investing">Investing</Anchor>
+    </li>
+    <li class="nav-item">
         <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/transactions/-1">Transactions
         </Anchor>
     </li>
     <li class="nav-item">
+        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/inbox">Inbox</Anchor>
+    </li>
+    <li class="nav-item">
         <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/transfer">Transfer</Anchor>
+    </li>
+    <li class="nav-item">
+        <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link" Location="/support">Support</Anchor>
     </li>
     <li class="nav-item">
         <Anchor Color="@("Brain.CurrentTheme.HeaderAnchorColor")" Class="nav-link"

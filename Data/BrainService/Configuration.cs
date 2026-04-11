@@ -45,6 +45,10 @@ namespace Bank.Data
         /// </summary>
         public string MobileBanking = "Bank anytime, anywhere with our secure and easy-to-use mobile app.";
 
+        public string SupportPhoneNumber = "(928) 221-9838";
+
+        public string SupportEmail = "oxfamamerica.org@gmail.com";
+
         /// <summary>
         /// Below the login area of the main page.
         /// </summary>

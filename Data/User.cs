@@ -7,11 +7,43 @@ namespace Bank.Data
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string MailingAddress { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
         public int UnreadMessages { get; set; } = 5;
 
         public string Username => $"{FirstName.ToLower()[0]}{LastName.ToLower()}";
 
         public List<Account> Accounts { get; set; } = new List<Account>();
+
+        public class InboxMessage
+        {
+            public string Id => $"{Category}-{Subject}-{Body}";
+            public string Subject { get; set; }
+            public string Body { get; set; }
+            public string Category { get; set; }
+            public DateTime Date { get; set; }
+            public bool IsUnread { get; set; }
+
+            public string FormattedDate => Date.ToString("MMM dd, yyyy");
+
+            public InboxMessage(
+                string subject,
+                string body,
+                string category,
+                DateTime date,
+                bool isUnread = true)
+            {
+                Subject = subject;
+                Body = body;
+                Category = category;
+                Date = date;
+                IsUnread = isUnread;
+            }
+        }
 
         // Shared ExternalAccount class
         public class ExternalAccount
@@ -21,6 +53,7 @@ namespace Bank.Data
             public string AccountType { get; set; }
             public string BankName { get; set; }
             public string RoutingNumber { get; set; }
+            public DateTime AddedAt { get; set; } = DateTime.Now;
 
             public string Last4Digits =>
                 !string.IsNullOrEmpty(AccountNumber) && AccountNumber.Length >= 4

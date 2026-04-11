@@ -1,5 +1,126 @@
+.transfer-page {
+    margin-bottom: 4em;
+    margin-top: 1.5em;
+}
+
+.transfer-header {
+    align-items: center;
+    border-left: 8px solid;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    padding: 1em 1.25em;
+}
+
+.transfer-header h2,
+.transfer-header p,
+.transfer-summary h4,
+.transfer-summary p {
+    margin: 0;
+}
+
+.transfer-header p,
+.transfer-summary p {
+    color: #555;
+    line-height: 1.6;
+    margin-top: 0.5em;
+}
+
+.account-link,
+.add-account-link {
+    font-weight: 600;
+}
+
+.transfer-grid {
+    align-items: start;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: minmax(0, 2fr) minmax(260px, 0.8fr);
+}
+
+.transfer-panel,
+.transfer-summary {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.25em;
+}
+
+.transfer-summary {
+    border-top: 6px solid;
+}
+
 #transfer-form {
-    margin-top: 1em;
+    margin: 0;
+}
+
+#transfer-form label {
+    font-weight: 600;
+}
+
+.themed-transfer-button {
+    color: #fff;
+    font-weight: 600;
+}
+
+.themed-transfer-button:hover,
+.themed-transfer-button:focus {
+    color: #fff;
+    filter: brightness(0.92);
+}
+
+.themed-spinner {
+    height: 3rem;
+    width: 3rem;
+}
+
+.themed-modal-header h5 {
+    margin: 0;
+}
+
+.themed-modal-header .close {
+    color: inherit;
+    opacity: 0.9;
+    text-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .transfer-page {
+        margin-bottom: 2em;
+        margin-top: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .transfer-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em;
+    }
+
+    .account-link {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 0.6em 0.9em;
+        width: 100%;
+    }
+
+    .transfer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .transfer-panel,
+    .transfer-summary {
+        padding: 1em;
+    }
+
+    .themed-transfer-button {
+        width: 100%;
+    }
+
+    .add-account-link {
+        margin-bottom: 0.75em;
+    }
 }
 
 #filler {

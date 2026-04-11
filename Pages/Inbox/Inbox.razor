@@ -1,0 +1,75 @@
+@page "/inbox"
+
+@if (CurrentUser != null)
+{
+    <div class="container inbox-page">
+        <div class="inbox-header" style="border-color: @(Brain.CurrentTheme.SecondaryBackgroundColor)">
+            <div>
+                <h2>Inbox</h2>
+                <p>Transaction notices and account activity for @CurrentUser.FirstName @CurrentUser.LastName.</p>
+            </div>
+            <div class="inbox-actions">
+                <span>@UnreadCount unread</span>
+                <Anchor Location="/account" Class="home-link">Account</Anchor>
+            </div>
+        </div>
+
+        @if (Messages.Count == 0)
+        {
+            <div class="empty-inbox">
+                <h4>No messages yet</h4>
+                <p>Your transaction and account activity messages will appear here.</p>
+            </div>
+        }
+        else
+        {
+            <div class="inbox-grid">
+                <div class="message-list">
+                    @foreach (var message in Messages)
+                    {
+                        <article class='@($"message-card {(message.IsUnread ? "unread" : "")} {(message.Id == SelectedMessage?.Id ? "selected" : "")}")'
+                                 @onclick="() => SelectMessage(message)">
+                            <div class="message-main">
+                                <div class="message-title-row">
+                                    <h4>@message.Subject</h4>
+                                    <span>@message.FormattedDate</span>
+                                </div>
+                                @if (message.Id == SelectedMessage?.Id)
+                                {
+                                    <p class="full-message">@message.Body</p>
+                                }
+                                else
+                                {
+                                    <p>@Preview(message)</p>
+                                }
+                            </div>
+                            <div class="message-meta">
+                                <span>@message.Category</span>
+                                @if (message.IsUnread)
+                                {
+                                    <strong>Unread</strong>
+                                }
+                                else
+                                {
+                                    <em>Read</em>
+                                }
+                            </div>
+                        </article>
+                    }
+                </div>
+
+                @if (SelectedMessage != null)
+                {
+                    <section class="message-reader">
+                        <div class="reader-meta">
+                            <span>@SelectedMessage.Category</span>
+                            <span>@SelectedMessage.FormattedDate</span>
+                        </div>
+                        <h3>@SelectedMessage.Subject</h3>
+                        <p>@SelectedMessage.Body</p>
+                    </section>
+                }
+            </div>
+        }
+    </div>
+}

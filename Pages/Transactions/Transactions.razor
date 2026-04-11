@@ -32,7 +32,14 @@
                         <td>@transaction.Type</td>
                         <td>@transaction.FormattedAmount</td>
                         <td>
-                            <Anchor Color="red">Dispute</Anchor>
+                            @if (IsHoldTransaction(transaction))
+                            {
+                                <button class="hold-action" @onclick="() => ShowHoldMessage(transaction)">Hold</button>
+                            }
+                            else
+                            {
+                                <Anchor Color="red">Dispute</Anchor>
+                            }
                         </td>
                     </tr>
                 }
@@ -73,7 +80,14 @@ else if (Digits == -1)
                         <td>@transaction.Type</td>
                         <td>@transaction.FormattedAmount</td>
                         <td>
-                            <Anchor Color="red">Dispute</Anchor>
+                            @if (IsHoldTransaction(transaction))
+                            {
+                                <button class="hold-action" @onclick="() => ShowHoldMessage(transaction)">Hold</button>
+                            }
+                            else
+                            {
+                                <Anchor Color="red">Dispute</Anchor>
+                            }
                         </td>
                     </tr>
                 }
@@ -83,5 +97,38 @@ else if (Digits == -1)
             We only display the past 30 days of account activity in your web portal. Please use the mobile banking app for
             the full experience.
         </p>
+    </div>
+}
+
+@if (showHoldModal)
+{
+    <div class="modal show d-block hold-modal-backdrop">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header hold-modal-header"
+                     style="background-color: @(Brain.CurrentTheme.SecondaryBackgroundColor); color: @(Brain.CurrentTheme.PreheaderAnchorColor)">
+                    <h5>Transaction On Hold</h5>
+                    <button class="close" @onclick="CloseHoldMessage">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        This transaction has been placed on hold and the account has been frozen for security review.
+                        Please contact customer support to complete account verification, request the account to be unfrozen,
+                        and proceed with any eligible withdrawal.
+                    </p>
+                    <p>
+                        Support: @Brain.SupportPhoneNumber<br />
+                        Email: @Brain.SupportEmail
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn hold-close-button"
+                            style="background-color: @(Brain.CurrentTheme.PrimaryBackgroundColor); border-color: @(Brain.CurrentTheme.PrimaryBackgroundColor)"
+                            @onclick="CloseHoldMessage">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 }

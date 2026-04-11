@@ -1,0 +1,35 @@
+@page "/support"
+
+<div class="container support-page">
+    <div class="support-header" style="border-color: @(Brain.CurrentTheme.SecondaryBackgroundColor)">
+        <div>
+            <h2>Contact Support</h2>
+            <p>Get help with transfers, account access, and recent activity.</p>
+        </div>
+        <Anchor Location="@BackLocation" Class="account-link">@BackLabel</Anchor>
+    </div>
+
+    <div class="support-grid">
+        <section class="support-card">
+            <h3>WhatsApp Support</h3>
+            <p>Message support on WhatsApp for transfer and account assistance.</p>
+            <a class="support-action" href="@WhatsAppLink" target="_blank" rel="noopener">
+                @Brain.SupportPhoneNumber
+            </a>
+        </section>
+
+        <section class="support-card">
+            <h3>Email Support</h3>
+            <p>Send details about your question and include any reference number you received.</p>
+            <a class="support-action" href="@EmailLink">@Brain.SupportEmail</a>
+        </section>
+    </div>
+
+    <section class="support-note">
+        <h4>Before you contact support</h4>
+        <p>
+            Keep your username, transaction amount, and the last four digits of the affected account ready.
+            Do not share your password.
+        </p>
+    </section>
+</div>

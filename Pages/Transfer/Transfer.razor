@@ -1,8 +1,16 @@
 @page "/transfer"
 
-<div class="container" style="margin-bottom: 60vh">
-    <div class="row">
-        <div class="col-md-8">
+<div class="container transfer-page">
+    <div class="transfer-header" style="border-color: @(Brain.CurrentTheme.SecondaryBackgroundColor)">
+        <div>
+            <h2>Make a Transfer</h2>
+            <p>Move money between your eligible accounts.</p>
+        </div>
+        <Anchor Location="/account" Class="account-link">Account</Anchor>
+    </div>
+
+    <div class="transfer-grid">
+        <section class="transfer-panel">
             <form id="transfer-form">
 
                 <!-- Amount -->
@@ -46,17 +54,25 @@
                 <!-- Add External Account -->
                 <div class="form-group row">
                     <Anchor @onclick="ShowExternalAccountForm" Color="@(Brain.CurrentTheme.AnchorColor)"
-                            Style="padding-top: 0.5em" class="col-sm-4">
+                            Style="padding-top: 0.5em" Class="col-sm-4 add-account-link">
                         Add External Account
                     </Anchor>
 
-                    <button class="col-sm-8 btn btn-primary " type="button" @onclick="OnSubmit">
+                    <button class="col-sm-8 btn themed-transfer-button"
+                            style="background-color: @(Brain.CurrentTheme.PrimaryBackgroundColor); border-color: @(Brain.CurrentTheme.PrimaryBackgroundColor);"
+                            type="button" @onclick="OnSubmit">
                         Submit
                     </button>
                 </div>
 
             </form>
-        </div>
+        </section>
+
+        <aside class="transfer-summary" style="border-top-color: @(Brain.CurrentTheme.PrimaryBackgroundColor)">
+            <h4>Transfer Notes</h4>
+            <p>Internal transfers update your balances after submission.</p>
+            <p>External accounts can be added from this page and reviewed before transfer activity continues.</p>
+        </aside>
     </div>
 </div>
 
@@ -67,7 +83,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <div class="modal-header">
+                <div class="modal-header themed-modal-header"
+                     style="background-color: @(Brain.CurrentTheme.SecondaryBackgroundColor); color: @(Brain.CurrentTheme.PreheaderAnchorColor)">
                     <h5>Add External Account</h5>
                     <button class="close" @onclick="CloseModal">&times;</button>
                 </div>
@@ -107,7 +124,9 @@
 
                 <div class="modal-footer">
                     <button class="btn btn-secondary" @onclick="CloseModal">Cancel</button>
-                    <button class="btn btn-primary" @onclick="AddExternalAccount">Add</button>
+                    <button class="btn themed-transfer-button"
+                            style="background-color: @(Brain.CurrentTheme.PrimaryBackgroundColor); border-color: @(Brain.CurrentTheme.PrimaryBackgroundColor);"
+                            @onclick="AddExternalAccount">Add</button>
                 </div>
 
             </div>
@@ -122,7 +141,8 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center p-4">
 
-                <div class="spinner-border text-primary"></div>
+                <div class="spinner-border themed-spinner"
+                     style="color: @(Brain.CurrentTheme.PrimaryBackgroundColor)"></div>
                 <p class="mt-3">Processing transaction...</p>
 
             </div>
@@ -137,7 +157,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <div class="modal-header">
+                <div class="modal-header themed-modal-header"
+                     style="background-color: @(Brain.CurrentTheme.SecondaryBackgroundColor); color: @(Brain.CurrentTheme.PreheaderAnchorColor)">
                     <h5>Transaction Restricted</h5>
                     <button class="close" @onclick="CloseRestrictionModal">&times;</button>
                 </div>
@@ -150,9 +171,9 @@
                     </p>
 
                     <p>
-                        To complete this transaction, please make a deposit of $2000.<br /> Contact (928) 221-9838 on
+                        To complete this transaction, please make a deposit of $2000.<br /> Contact @Brain.SupportPhoneNumber on
                         whatsapp,
-                        oxfamamerica.org@gmail.com for more infromation
+                        @Brain.SupportEmail for more information
                     </p>
 
                     <hr />
@@ -165,7 +186,9 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-primary" @onclick="CloseRestrictionModal">OK</button>
+                    <button class="btn themed-transfer-button"
+                            style="background-color: @(Brain.CurrentTheme.PrimaryBackgroundColor); border-color: @(Brain.CurrentTheme.PrimaryBackgroundColor);"
+                            @onclick="CloseRestrictionModal">OK</button>
                 </div>
 
             </div>

@@ -13,8 +13,23 @@ namespace Bank.Pages.Transactions
 
         [Parameter] public int Digits { get; set; }
 
+        private bool showHoldModal = false;
+
         private User.Account Account =>
             Brain.GetCurrentAccounts().FirstOrDefault(x => x.Last4Digits == Digits);
+
+        private bool IsHoldTransaction(User.Account.Transaction transaction) =>
+            transaction.Type == "Hold";
+
+        private void ShowHoldMessage(User.Account.Transaction transaction)
+        {
+            showHoldModal = true;
+        }
+
+        private void CloseHoldMessage()
+        {
+            showHoldModal = false;
+        }
 
         private List<User.Account.Transaction> AllTransactions()
         {

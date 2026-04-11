@@ -1,0 +1,86 @@
+.profile-page {
+    margin-bottom: 4em;
+    margin-top: 1.5em;
+}
+
+.profile-header {
+    align-items: center;
+    border-left: 8px solid;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    padding: 1em 1.25em;
+}
+
+.profile-header h2,
+.profile-header p {
+    margin: 0;
+}
+
+.profile-header p {
+    color: #555;
+    margin-top: 0.35em;
+}
+
+.account-link,
+.cancel-link {
+    font-weight: 600;
+}
+
+.profile-form {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.25em;
+}
+
+.profile-actions {
+    align-items: center;
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.save-message {
+    border: 1px solid #4caf50;
+    border-radius: 8px;
+    color: #246b27;
+    margin-bottom: 1em;
+    padding: 0.8em 1em;
+}
+
+@media (max-width: 768px) {
+    .profile-page {
+        margin-bottom: 2em;
+        margin-top: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .profile-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em;
+    }
+
+    .account-link {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 0.6em 0.9em;
+        width: 100%;
+    }
+
+    .profile-form {
+        padding: 1em;
+    }
+
+    .profile-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .profile-actions button,
+    .cancel-link {
+        width: 100%;
+    }
+}

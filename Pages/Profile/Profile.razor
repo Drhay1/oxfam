@@ -1,0 +1,68 @@
+@page "/profile"
+
+@if (CurrentUser != null)
+{
+    <div class="container profile-page">
+        <div class="profile-header" style="border-color: @(Brain.CurrentTheme.SecondaryBackgroundColor)">
+            <div>
+                <h2>Edit Profile</h2>
+                <p>Update your contact details and mailing information.</p>
+            </div>
+            <Anchor Location="/account" Class="account-link">Account</Anchor>
+        </div>
+
+        @if (showSaved)
+        {
+            <div class="save-message">Profile updated.</div>
+        }
+
+        <div class="profile-form">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>First Name</label>
+                    <input class="form-control" @bind="FirstName" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Last Name</label>
+                    <input class="form-control" @bind="LastName" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Email</label>
+                    <input class="form-control" type="email" @bind="Email" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Phone Number</label>
+                    <input class="form-control" @bind="PhoneNumber" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mailing Address</label>
+                <input class="form-control" @bind="MailingAddress" />
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label>City</label>
+                    <input class="form-control" @bind="City" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label>State</label>
+                    <input class="form-control" maxlength="2" @bind="State" />
+                </div>
+                <div class="form-group col-md-4">
+                    <label>ZIP Code</label>
+                    <input class="form-control" @bind="ZipCode" />
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button class="btn btn-primary" type="button" @onclick="SaveProfile">Save Profile</button>
+                <Anchor Location="/account" Class="cancel-link">Cancel</Anchor>
+            </div>
+        </div>
+    </div>
+}

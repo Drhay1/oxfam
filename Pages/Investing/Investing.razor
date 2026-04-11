@@ -1,0 +1,29 @@
+@page "/investing"
+
+<div class="container investing-page">
+    <div class="investing-header" style="border-color: @(Brain.CurrentTheme.SecondaryBackgroundColor)">
+        <div>
+            <h2>Investing</h2>
+            <p>Plan, save, and review investment options for long-term goals.</p>
+        </div>
+        <Anchor Location="@BackLocation" Class="back-link">@BackLabel</Anchor>
+    </div>
+
+    <div class="investing-grid">
+        <section class="investing-card">
+            <h3>Goal Planning</h3>
+            <p>Review options for retirement, education, and future purchases.</p>
+        </section>
+
+        <section class="investing-card">
+            <h3>Portfolio Review</h3>
+            <p>Track your investment direction and keep your account activity organized.</p>
+        </section>
+
+        <section class="investing-card">
+            <h3>Advisor Support</h3>
+            <p>Reach support for help with investing access, account questions, and next steps.</p>
+            <Anchor Location="/support" Class="investing-action">Contact Support</Anchor>
+        </section>
+    </div>
+</div>

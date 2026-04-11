@@ -54,3 +54,44 @@
 .transaction-card .amount {
     font-weight: bold;
 }
+
+.hold-action {
+    background: transparent;
+    border: 1px solid #c70b2d;
+    border-radius: 8px;
+    color: #c70b2d;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.25em 0.65em;
+}
+
+.hold-action:hover,
+.hold-action:focus {
+    background: #c70b2d;
+    color: #fff;
+}
+
+.hold-modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hold-modal-header h5 {
+    margin: 0;
+}
+
+.hold-modal-header .close {
+    color: inherit;
+    opacity: 0.9;
+    text-shadow: none;
+}
+
+.hold-close-button {
+    color: #fff;
+    font-weight: 600;
+}
+
+.hold-close-button:hover,
+.hold-close-button:focus {
+    color: #fff;
+    filter: brightness(0.92);
+}
