@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <table class="table table-striped">
+        <table class="table table-striped transaction-table desktop-only">
             <thead>
                 <tr>
                     <th scope>Date</th>
@@ -45,6 +45,25 @@
                 }
             </tbody>
         </table>
+        <div class="mobile-only transaction-card-list">
+            @foreach (User.Account.Transaction transaction in Account.PastTransactions.OrderByDescending(x => x.Date))
+            {
+                <div class="transaction-card">
+                    <div><strong>@transaction.Description</strong></div>
+                    <div>@transaction.Date.ToString("MM/dd")</div>
+                    <div>@transaction.Type</div>
+                    <div class="amount">@transaction.FormattedAmount</div>
+                    @if (IsHoldTransaction(transaction))
+                    {
+                        <button class="hold-action" @onclick="() => ShowHoldMessage(transaction)">Hold</button>
+                    }
+                    else
+                    {
+                        <Anchor Color="red">Dispute</Anchor>
+                    }
+                </div>
+            }
+        </div>
         <p>
             We only display the past 30 days of account activity in your web portal. Please use the mobile banking app for
             the full experience.
@@ -61,7 +80,7 @@ else if (Digits == -1)
                 </div>
             </div>
         </div>
-        <table class="table table-striped">
+        <table class="table table-striped transaction-table desktop-only">
             <thead>
                 <tr>
                     <th scope>Date</th>
@@ -93,6 +112,25 @@ else if (Digits == -1)
                 }
             </tbody>
         </table>
+        <div class="mobile-only transaction-card-list">
+            @foreach (User.Account.Transaction transaction in AllTransactions().OrderByDescending(x => x.Date))
+            {
+                <div class="transaction-card">
+                    <div><strong>@transaction.Description</strong></div>
+                    <div>@transaction.Date.ToString("MM/dd")</div>
+                    <div>@transaction.Type</div>
+                    <div class="amount">@transaction.FormattedAmount</div>
+                    @if (IsHoldTransaction(transaction))
+                    {
+                        <button class="hold-action" @onclick="() => ShowHoldMessage(transaction)">Hold</button>
+                    }
+                    else
+                    {
+                        <Anchor Color="red">Dispute</Anchor>
+                    }
+                </div>
+            }
+        </div>
         <p>
             We only display the past 30 days of account activity in your web portal. Please use the mobile banking app for
             the full experience.

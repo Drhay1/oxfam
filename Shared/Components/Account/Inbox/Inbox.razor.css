@@ -11,3 +11,15 @@
     font-size: 0.8em;
     margin-top: 4px;
 }
+
+@media (max-width: 768px) {
+    #notifications h4 span {
+        display: block;
+        float: none;
+        margin-top: 0.35em;
+    }
+
+    #notifications button {
+        width: 100%;
+    }
+}

@@ -10,7 +10,8 @@
 }
 
 #inactivity-popup > div {
-    width: 420px;
+    max-width: 420px;
+    width: calc(100% - 2em);
     margin: 15% auto;
     color: white;
 }

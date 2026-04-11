@@ -14,3 +14,23 @@
     margin-right: 1em;
     float: none;
 }
+
+@media (max-width: 991px) {
+    #stuff {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    #main-row {
+        margin-top: 0.5em;
+    }
+
+    #filler .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #main-row {
+        flex-direction: column;
+    }
+}

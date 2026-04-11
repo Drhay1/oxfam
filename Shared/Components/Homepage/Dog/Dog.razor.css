@@ -95,6 +95,11 @@
 /* MOBILE RESPONSIVE STYLING BELOW */
 /* =============================== */
 @media (max-width: 991px) {
+    .dog {
+        min-height: auto;
+        padding: 1em 0;
+    }
+
     .dog .epic {
         position: relative;
         top: auto;
@@ -153,5 +158,25 @@
 
     .dog .spacer {
         height: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .dog .epic {
+        padding: 1.25em 1em;
+    }
+
+    .dog .headline {
+        padding: 1em 0.5em;
+    }
+
+    .dog .headline h1,
+    .dog .headline h4 {
+        overflow-wrap: anywhere;
+    }
+
+    #loading {
+        height: auto;
+        padding: 1em;
     }
 }

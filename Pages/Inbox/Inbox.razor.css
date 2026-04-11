@@ -84,6 +84,7 @@
 .message-title-row h4,
 .message-main p {
     margin: 0;
+    overflow-wrap: anywhere;
 }
 
 .message-title-row span,

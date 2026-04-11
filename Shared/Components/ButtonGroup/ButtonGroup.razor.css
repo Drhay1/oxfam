@@ -9,9 +9,14 @@ ul.wrap {
     flex-wrap: wrap;
 }
 
-/* FIXME this is fucking gay why doesnt this work */
-ul.wrap::deep ButtonGroupItem:nth-child(2) {
+ul.account-actions li {
     width: 50%;
     border-bottom: 2px solid #fff;
     border-right: 2px solid #fff;
+}
+
+@media (max-width: 768px) {
+    ul.account-actions li {
+        width: 50%;
+    }
 }

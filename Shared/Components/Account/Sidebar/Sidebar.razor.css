@@ -1,0 +1,26 @@
+.account-sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 991px) {
+    .account-sidebar {
+        display: flex;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        order: 2;
+        width: 100% !important;
+    }
+
+    .account-sidebar > * {
+        width: 100%;
+    }
+
+    .account-sidebar ::deep #notifications,
+    .account-sidebar ::deep .card {
+        display: block;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+}

@@ -7,6 +7,24 @@ body {
     background-color: #fff;
     font-family: "Poppins";
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img,
+table {
+    max-width: 100%;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+    max-width: 100%;
 }
 
 body,
@@ -41,4 +59,26 @@ nav a {
     position: absolute;
     right: 0.75rem;
     top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.45rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .container {
+        max-width: 100%;
+    }
 }

@@ -19,7 +19,7 @@
         </div>
 
         <!-- Menu -->
-        <nav class="header-menu @(menuVisible ? "show" : "")">
+        <nav class="header-menu @(menuVisible ? "show" : "")" @onclick="CloseMenu">
             <ul class="nav">
                 <NavbarLinks />
             </ul>
@@ -41,7 +41,7 @@ else if (Brain.CurrentTheme.NavbarStyle == NavbarStyle.Seperated)
 
         </div>
 
-        <nav class="header-menu @(menuVisible ? "show" : "")">
+        <nav class="header-menu @(menuVisible ? "show" : "")" @onclick="CloseMenu">
             <ul class="nav">
                 <NavbarLinks />
             </ul>
@@ -63,7 +63,7 @@ else if (Brain.CurrentTheme.NavbarStyle == NavbarStyle.Modern)
 
         </div>
 
-        <nav class="header-menu @(menuVisible ? "show" : "")">
+        <nav class="header-menu @(menuVisible ? "show" : "")" @onclick="CloseMenu">
             <ul class="nav">
                 <NavbarLinks />
             </ul>
@@ -78,5 +78,10 @@ else if (Brain.CurrentTheme.NavbarStyle == NavbarStyle.Modern)
     private void ToggleMenu()
     {
         menuVisible = !menuVisible;
+    }
+
+    private void CloseMenu()
+    {
+        menuVisible = false;
     }
 }

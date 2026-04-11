@@ -121,6 +121,10 @@
     .add-account-link {
         margin-bottom: 0.75em;
     }
+
+    .modal-dialog {
+        margin: 1em;
+    }
 }
 
 #filler {

@@ -70,10 +70,25 @@
         display: flex !important;
     }
 
-    .header-menu li {
+    .header-menu .nav {
+        align-items: stretch;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .header-menu ::deep li {
+        display: block;
         width: 100%;
         text-align: center;
-        padding: 1em 0;
+        padding: 0;
         border-bottom: 1px solid #ccc;
+    }
+
+    .header-menu ::deep a {
+        display: block;
+        padding: 1em;
+        width: 100%;
     }
 }

@@ -141,6 +141,7 @@
 
     .account-card .card-actions {
         display: flex;
+        gap: 1em;
         justify-content: space-between;
         margin-top: 0.5rem;
     }
@@ -154,10 +155,7 @@
         border: 1px solid #eee;
         display: flex;
         flex-direction: column;
-        width: calc(100% - 2rem);
-        /* account for padding/margin */
-        margin-left: 1rem;
-        margin-right: 1rem;
+        width: 100%;
         box-sizing: border-box;
     }
 

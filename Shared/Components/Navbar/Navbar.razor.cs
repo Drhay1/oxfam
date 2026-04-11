@@ -13,7 +13,10 @@ namespace Bank.Shared.Components.Navbar
         protected override void OnInitialized()
         {
             Navigation.LocationChanged += (_, _) =>
+            {
+                menuVisible = false;
                 StateHasChanged();
+            };
         }
     }
 }
