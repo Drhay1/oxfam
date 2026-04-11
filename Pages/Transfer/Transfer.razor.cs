@@ -82,6 +82,12 @@ namespace Bank.Pages.Transfer
             await Task.Delay(4000);
             showLoadingModal = false;
 
+            if (Brain.AccountFrozen)
+            {
+                showRestrictionModal = true;
+                return;
+            }
+
             // External restriction modal
             if (external != null)
             {

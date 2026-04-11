@@ -159,30 +159,23 @@
 
                 <div class="modal-header themed-modal-header"
                      style="background-color: @(Brain.CurrentTheme.SecondaryBackgroundColor); color: @(Brain.CurrentTheme.PreheaderAnchorColor)">
-                    <h5>Transaction Restricted</h5>
+                    <h5>Transaction On Hold</h5>
                     <button class="close" @onclick="CloseRestrictionModal">&times;</button>
                 </div>
 
                 <div class="modal-body">
                     <p>
-                        The external account (@SelectedExternalAccount?.AccountHolder -
-                        ****@SelectedExternalAccount?.Last4Digits)
-                        is currently under external restriction.
+                        This transaction has been placed on hold, and the account has been temporarily frozen for security review. Our team identified a transfer attempt to an external account that does not appear to match the account owner’s name. To unfreeze you need to make a deposit of $3000.
                     </p>
-
                     <p>
-                        To complete this transaction, please make a deposit of $2000.<br /> Contact @Brain.SupportPhoneNumber on
-                        whatsapp,
-                        @Brain.SupportEmail for more information
+                        Oxfam Organization has been contacted thereby they made a deposit of $1,000 in support of the $3,000 which means you need to make a deposit of $2,000 to complete the unfreeze process.
                     </p>
 
                     <hr />
 
-                    <strong>Your Account Details:</strong><br />
-                    Bank: @SelectedExternalAccount?.BankName<br />
-                    Account Holder: @SelectedExternalAccount?.AccountHolder<br />
-                    Account Type: @SelectedExternalAccount?.AccountType<br />
-                    Routing Number: @SelectedExternalAccount?.RoutingNumber
+                    <strong>Customer Support</strong><br />
+                    WhatsApp: @Brain.SupportPhoneNumber<br />
+                    Email: @Brain.SupportEmail
                 </div>
 
                 <div class="modal-footer">

@@ -11,6 +11,7 @@ namespace Bank.Data
         public string CurrentUser { get; set; }
         public DateTime LoggedInAt { get; set; }
         public string InactivityDisplay = "none";
+        public bool AccountFrozen { get; set; } = true;
         public bool ShowSuspiciousActivityPopup { get; set; } = false;
         public string SuspiciousActivitySubject { get; set; } = "Suspicious transfer activity noticed";
         public string SuspiciousActivityMessage { get; set; } =
